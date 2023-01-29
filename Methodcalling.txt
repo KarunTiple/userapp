@@ -1,0 +1,182 @@
+1) Method calling in same Package.
+
+Example 1:
+
+package methodCallingInsamePackage;
+
+public class A {
+
+	public void add() {
+		int a=10;
+		int b=20;
+		int c=a+b;
+		System.out.println("Addition :"+c);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("Main method execution started");
+		
+		A a=new A();
+		a.add();
+		
+		B b=new B();
+		b.sub();
+		
+		System.out.println("Main method execution ended");
+		
+	}
+}
+
+
+package methodCallingInsamePackage;
+
+public class B {
+
+	public void sub() {
+		int a=10;
+		int b=5;
+		int c=a-b;
+		System.out.println("Substraction :"+c);
+	}
+}
+
+
+Example 2:
+
+
+
+package methodCallingInsamePackage;
+
+public class A {
+
+	public void add() {
+		int a=10;
+		int b=20;
+		int c=a+b;
+		System.out.println("Addition :"+c);
+	}
+	
+	
+}
+
+
+
+
+package methodCallingInsamePackage;
+
+public class B {
+
+	public void sub() {
+		int a=10;
+		int b=5;
+		int c=a-b;
+		System.out.println("Substraction :"+c);
+	}
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Main method execution started");
+		A a=new A();
+		a.add();
+		
+		B b=new B();
+		b.sub();
+		
+		System.out.println("Main method execution ended");
+	}
+	
+}
+
+
+
+2)Method calling in diffrent packages.
+
+
+Example 1:
+
+
+package pacakage1;
+
+import package2.Demo2;
+
+public class Demo1 {
+
+	public void mul() {
+		
+		int a=10;
+		int b=5;
+		int c=a*b;
+		System.out.println("Multiplication:"+c);
+	}
+	
+	public static void main(String[] args) {
+		
+		Demo1 d1=new Demo1();
+		d1.mul();
+		
+		Demo2 d2=new Demo2();
+		d2.div();
+		
+	}
+}
+
+
+package package2;
+
+public class Demo2 {
+
+	public void div() {
+		int a=10;
+		int b=2;
+		int c=a/b;
+		System.out.println("div="+c);
+	}
+}
+
+
+
+Example 2:
+
+
+package pacakage1;
+
+
+
+public class Demo1 {
+
+	public void mul() {
+		
+		int a=10;
+		int b=5;
+		int c=a*b;
+		System.out.println("Multiplication:"+c);
+	}
+	
+	
+}
+
+
+
+package package2;
+
+import pacakage1.Demo1;
+
+public class Demo2 {
+
+	public void div() {
+		int a=10;
+		int b=2;
+		int c=a/b;
+		System.out.println("div="+c);
+	}
+	
+	public static void main(String[] args) {
+		
+		Demo2 d2=new Demo2();
+		d2.div();
+		
+		Demo1 d1=new Demo1();
+		d1.mul();
+		
+	}
+}
